@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kishore T S | AI/ML Engineer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Neural Network Background -->
+    <canvas id="neural-network-bg"></canvas>
+    
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <a href="#home">TSK</a>
+            </div>
+            <ul class="nav__menu" id="nav-menu">
+                <li><a href="#home" class="nav__link"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#about" class="nav__link"><i class="fas fa-user"></i> About</a></li>
+                <li><a href="#skills" class="nav__link"><i class="fas fa-code"></i> Skills</a></li>
+                <li><a href="#projects" class="nav__link"><i class="fas fa-folder"></i> Projects</a></li>
+                <li><a href="#experience" class="nav__link"><i class="fas fa-briefcase"></i> Experience</a></li>
+                <li><a href="#contact" class="nav__link"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+            <div class="nav__actions">
+                <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero section" id="home">
+        <div class="hero__container container">
+            <div class="hero__avatar">
+                <div class="avatar__ring">
+                    <img src="image.png" alt="Kishore T S" class="avatar__image" id="avatar-image">
+                    <canvas id="avatar-canvas" class="avatar__image avatar__canvas-fallback" style="display: none;"></canvas>
+                    <!-- Fallback SVG Avatar -->
+                    <svg id="avatar-svg-fallback" class="avatar__image avatar__svg-fallback" viewBox="0 0 272 272" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                        <defs>
+                            <radialGradient id="faceGrad" cx="50%" cy="40%" r="60%">
+                                <stop offset="0%" style="stop-color:#f4d4b8;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#e8c5a3;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#d4b08a;stop-opacity:1" />
+                            </radialGradient>
+                            <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" style="stop-color:#2a2a3a;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#1a1a2a;stop-opacity:1" />
+                            </radialGradient>
+                        </defs>
+                        <!-- Background -->
+                        <rect width="272" height="272" rx="136" fill="url(#bgGrad)"/>
+                        <!-- Face -->
+                        <ellipse cx="136" cy="136" rx="103" ry="114" fill="url(#faceGrad)"/>
+                        <ellipse cx="136" cy="118" rx="87" ry="76" fill="rgba(255,255,255,0.15)"/>
+                        <!-- Hair (spiky techie style) -->
+                        <path d="M68 95 L95 50 L105 40 L127 40 L137 50 L204 95 Q204 95, 136 95 Q68 95, 68 95 Z" fill="#2a1f1a"/>
+                        <circle cx="100" cy="55" r="22" fill="#1a1510"/>
+                        <circle cx="172" cy="55" r="22" fill="#1a1510"/>
+                        <!-- Eyes -->
+                        <ellipse cx="105" cy="130" rx="16" ry="22" fill="#ffffff"/>
+                        <ellipse cx="167" cy="130" rx="16" ry="22" fill="#ffffff"/>
+                        <circle cx="105" cy="131" r="8" fill="#1a1a1a"/>
+                        <circle cx="167" cy="131" r="8" fill="#1a1a1a"/>
+                        <circle cx="107" cy="128" r="3" fill="#ffffff"/>
+                        <circle cx="169" cy="128" r="3" fill="#ffffff"/>
+                        <!-- Glasses (modern thin frame, rounded rectangular) -->
+                        <rect x="48" y="110" width="46" height="40" rx="8" fill="none" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <rect x="178" y="110" width="46" height="40" rx="8" fill="none" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="94" y1="130" x2="178" y2="130" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round"/>
+                        <line x1="48" y1="130" x2="25" y2="145" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round"/>
+                        <line x1="224" y1="130" x2="247" y2="145" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round"/>
+                        <!-- Nose -->
+                        <path d="M136 150 Q134 165, 136 180" stroke="rgba(196,160,120,0.4)" stroke-width="1.5" fill="none"/>
+                        <!-- Mouth (soft smile) -->
+                        <path d="M115 190 Q136 205, 157 190" stroke="#c49a78" stroke-width="2" fill="none" stroke-linecap="round"/>
+                        <!-- Clothing -->
+                        <path d="M68 200 L95 210 L177 210 L204 200 L231 218 L41 218 Z" fill="#3a3a4a"/>
+                        <rect x="41" y="210" width="190" height="54" fill="#4a4a5a"/>
+                        <path d="M95 210 L136 218 L177 210" stroke="#5a5a6a" stroke-width="1.5" fill="none"/>
+                    </svg>
+                </div>
+                <span class="hero__title-badge">Available for Opportunities</span>
+            </div>
+            <div class="hero__content">
+                <h1 class="hero__name">
+                    <span class="hero__name-first">Kishore</span>
+                    <span class="hero__name-last">T S</span>
+                </h1>
+                <h2 class="hero__title">
+                    AI/ML Engineer | AI Project Developer | Problem Solver
+                </h2>
+                <p class="hero__tagline">Building intelligent, data-driven applications using machine learning, NLP, and modern AI systems.</p>
+                <div class="hero__buttons">
+                    <a href="#projects" class="btn btn--primary">
+                        <i class="fas fa-rocket"></i>
+                        View Projects
+                    </a>
+                    <a href="Resume.pdf" download class="btn btn--secondary">
+                        <i class="fas fa-download"></i>
+                        Download Resume
+                    </a>
+                    <a href="#contact" class="btn btn--outline">
+                        <i class="fas fa-envelope"></i>
+                        Contact Me
+                    </a>
+                </div>
+                <div class="hero__social">
+                    <a href="https://github.com/Kishorets05" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/kishore-t-s-699285308/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:23cseb38.kishore.ts@gmail.com" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section" id="about">
+        <div class="container">
+            <h2 class="section__title about__title">About Me</h2>
+            <div class="about__grid">
+                <!-- Card 1: Who I Am -->
+                <div class="about__card">
+                    <h3 class="about__heading">Who I Am</h3>
+                    <div class="about__divider"></div>
+                    <p class="about__text">
+                        I am a BE Computer Science Engineering student with a strong interest in Artificial Intelligence, Machine Learning, and applied AI systems. I enjoy building intelligent applications that transform data into actionable insights and practical solutions.
+                    </p>
+                </div>
+
+                <!-- Card 2: What I Do -->
+                <div class="about__card">
+                    <h3 class="about__heading">What I Do</h3>
+                    <div class="about__divider"></div>
+                    <p class="about__text">
+                        I have hands-on experience working on AI-based projects, including NLP-driven applications, machine learning models, and end-to-end AI web solutions. My approach focuses on understanding real-world problems, applying suitable AI techniques, and delivering reliable, data-driven results.
+                    </p>
+                </div>
+
+                <!-- Card 3: Current Focus -->
+                <div class="about__card">
+                    <h3 class="about__heading">Current Focus</h3>
+                    <div class="about__divider"></div>
+                    <p class="about__text">
+                        Currently, I am enhancing my skills in machine learning, deep learning fundamentals, SQL, model deployment, and large language models (LLMs) to build production-ready AI applications and prepare for campus placement opportunities.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills section" id="skills">
+        <div class="container">
+            <h2 class="section__title">Skills</h2>
+            <div class="skills__grid">
+                <div class="skill__card glass-card">
+                    <h3 class="skill__category">
+                        <i class="fas fa-brain"></i>
+                        Artificial Intelligence & Machine Learning
+                    </h3>
+                    <ul class="skill__list">
+                        <li>Machine Learning (Classification, Regression)</li>
+                        <li>Deep Learning Fundamentals</li>
+                        <li>Feature Engineering</li>
+                        <li>Model Evaluation & Optimization</li>
+                    </ul>
+                </div>
+                <div class="skill__card glass-card">
+                    <h3 class="skill__category">
+                        <i class="fas fa-language"></i>
+                        Natural Language Processing & LLMs
+                    </h3>
+                    <ul class="skill__list">
+                        <li>Text Classification</li>
+                        <li>Emotion Detection</li>
+                        <li>Task & Intent Analysis</li>
+                        <li>Prompt Engineering</li>
+                        <li>Gemini API Integration</li>
+                        <li>LLM-based Application Design</li>
+                    </ul>
+                </div>
+                <div class="skill__card glass-card">
+                    <h3 class="skill__category">
+                        <i class="fas fa-chart-line"></i>
+                        Data Science & Analytics
+                    </h3>
+                    <ul class="skill__list">
+                        <li>Data Cleaning & Preprocessing</li>
+                        <li>Exploratory Data Analysis (EDA)</li>
+                        <li>SQL Queries & Data Analysis</li>
+                    </ul>
+                </div>
+                <div class="skill__card glass-card">
+                    <h3 class="skill__category">
+                        <i class="fas fa-server"></i>
+                        Backend & Model Deployment
+                    </h3>
+                    <ul class="skill__list">
+                        <li>REST API Integration</li>
+                        <li>Flask-based ML Applications</li>
+                        <li>SQL Databases</li>
+                    </ul>
+                </div>
+                <div class="skill__card glass-card">
+                    <h3 class="skill__category">
+                        <i class="fas fa-code"></i>
+                        Programming Languages
+                    </h3>
+                    <ul class="skill__list">
+                        <li>Python</li>
+                        <li>Java</li>
+                        <li>SQL</li>
+                    </ul>
+                </div>
+                <div class="skill__card glass-card">
+                    <h3 class="skill__category">
+                        <i class="fas fa-tools"></i>
+                        Tools
+                    </h3>
+                    <ul class="skill__list">
+                        <li>Git & GitHub</li>
+                        <li>VS Code</li>
+                        <li>Cursor</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects section" id="projects">
+        <div class="container">
+            <h2 class="section__title">Projects</h2>
+            <div class="projects__grid">
+                <div class="project__card glass-card">
+                    <div class="project__icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M50 20 C35 20, 25 30, 25 45 C25 50, 27 55, 30 58 C28 62, 27 66, 27 70 C27 80, 35 88, 45 88 C48 88, 51 87, 54 86 C57 89, 60 90, 63 90 C73 90, 81 82, 81 72 C81 68, 80 64, 78 60 C81 57, 83 52, 83 47 C83 32, 73 22, 58 22 C56 20, 53 20, 50 20 Z" fill="#C084FC"/>
+                            <circle cx="40" cy="50" r="4" fill="#C084FC"/>
+                            <circle cx="60" cy="50" r="4" fill="#C084FC"/>
+                            <path d="M45 65 Q50 70, 55 65" stroke="#C084FC" stroke-width="2" fill="none" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="project__title">AI Commitment Tracker</h3>
+                    <p class="project__description">AI-powered task management system that predicts task priority and urgency using NLP and machine learning.</p>
+                    <div class="project__tech">
+                        <span>Python</span>
+                        <span>Machine Learning</span>
+                        <span>NLP</span>
+                        <span>Flask</span>
+                    </div>
+                    <div class="project__links">
+                        <a href="https://ai-commitment-tracker.onrender.com" target="_blank" rel="noopener noreferrer" class="project__link project__link--demo">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                        <a href="https://github.com/Kishorets05/AI-Commitment-Tracker" target="_blank" rel="noopener noreferrer" class="project__link">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+                <div class="project__card glass-card">
+                    <div class="project__icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="35" fill="#C084FC" opacity="0.3"/>
+                            <circle cx="38" cy="45" r="5" fill="none" stroke="#C084FC" stroke-width="1.5"/>
+                            <circle cx="62" cy="45" r="5" fill="none" stroke="#C084FC" stroke-width="1.5"/>
+                            <path d="M38 60 Q50 70, 62 60" stroke="#C084FC" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                            <circle cx="38" cy="45" r="2" fill="#C084FC"/>
+                            <circle cx="62" cy="45" r="2" fill="#C084FC"/>
+                        </svg>
+                    </div>
+                    <h3 class="project__title">AI Emotion Detector</h3>
+                    <p class="project__description">NLP-based application that identifies emotions from text using trained machine learning models.</p>
+                    <div class="project__tech">
+                        <span>Python</span>
+                        <span>Machine Learning</span>
+                        <span>NLP</span>
+                        <span>Streamlit</span>
+                    </div>
+                    <div class="project__links">
+                        <a href="https://emotions-detector.streamlit.app/" target="_blank" rel="noopener noreferrer" class="project__link project__link--demo">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                        <a href="https://github.com/Kishorets05/Emotions-Detector" target="_blank" rel="noopener noreferrer" class="project__link">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+                <div class="project__card glass-card">
+                    <div class="project__icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="45" y="25" width="10" height="40" rx="5" fill="#C084FC"/>
+                            <path d="M50 65 L50 75 L40 75 L40 80 L60 80 L60 75 L50 75 Z" fill="#C084FC"/>
+                            <ellipse cx="50" cy="20" rx="8" ry="6" fill="#C084FC"/>
+                            <path d="M42 20 Q50 15, 58 20" stroke="#C084FC" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            <circle cx="50" cy="20" r="3" fill="none" stroke="#C084FC" stroke-width="1"/>
+                        </svg>
+                    </div>
+                    <h3 class="project__title">AI Interview Questions Generator</h3>
+                    <p class="project__description">AI-driven system that generates role-specific technical and HR interview questions using large language models.</p>
+                    <div class="project__tech">
+                        <span>Python</span>
+                        <span>LLMs</span>
+                        <span>Prompt Engineering</span>
+                    </div>
+                    <div class="project__links">
+                        <a href="https://interview-questions-cjdkvgk3cudkfaxrwunkvt.streamlit.app/" target="_blank" rel="noopener noreferrer" class="project__link project__link--demo">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                        <a href="https://github.com/Kishorets05/Interview-Questions" target="_blank" rel="noopener noreferrer" class="project__link">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+                <div class="project__card glass-card">
+                    <div class="project__icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M50 15 L35 50 L50 45 L65 50 Z" fill="#C084FC"/>
+                            <rect x="45" y="45" width="10" height="35" rx="5" fill="#C084FC"/>
+                            <circle cx="50" cy="80" r="8" fill="#C084FC"/>
+                            <path d="M30 50 L25 55 L30 60 Z" fill="#C084FC"/>
+                            <path d="M70 50 L75 55 L70 60 Z" fill="#C084FC"/>
+                            <circle cx="50" cy="20" r="2" fill="#C084FC"/>
+                        </svg>
+                    </div>
+                    <h3 class="project__title">AI Startup Idea Evaluator</h3>
+                    <p class="project__description">AI-powered web application that evaluates startup ideas based on feasibility, innovation, and scalability.</p>
+                    <div class="project__tech">
+                        <span>Python</span>
+                        <span>LLMs</span>
+                        <span>Scoring Logic</span>
+                        <span>Web Application</span>
+                    </div>
+                    <div class="project__links">
+                        <a href="https://startup-idea-evaluator-engine.streamlit.app/" target="_blank" rel="noopener noreferrer" class="project__link project__link--demo">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                        <a href="https://github.com/Kishorets05/Startup-Idea-Evaluator" target="_blank" rel="noopener noreferrer" class="project__link">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience section" id="experience">
+        <div class="container">
+            <h2 class="section__title">Experience</h2>
+            <div class="experience__content">
+                <div class="experience__card glass-card">
+                    <div class="experience__header">
+                        <h3 class="experience__title">Data Science Intern</h3>
+                        <span class="experience__company">AstroWeb Solutions Pvt. Limited</span>
+                        <span class="experience__date">May 2025 – June 2025</span>
+                    </div>
+                    <ul class="experience__list">
+                        <li>Developed <span class="experience__keyword">AI-based</span> features for real-world applications</li>
+                        <li>Worked on data preprocessing and <span class="experience__keyword">ML logic</span> under guidance</li>
+                        <li>Assisted in integrating <span class="experience__keyword">AI components</span> into application workflows</li>
+                        <li>Followed structured development and collaborative practices</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education section" id="education">
+        <div class="container">
+            <h2 class="section__title">Education</h2>
+            <div class="education__content">
+                <div class="education__card glass-card">
+                    <div class="education__icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="education__degree">Bachelor of Engineering – Computer Science Engineering</h3>
+                    <p class="education__institution">Velammal College of Engineering and Technology</p>
+                    <p class="education__period">2023 – 2027 (Expected)</p>
+                    <p class="education__grade">
+                        <span class="education__grade-label">CGPA:</span> 
+                        <span class="education__grade-value">8.12</span>
+                    </p>
+                </div>
+                <div class="education__card glass-card">
+                    <div class="education__icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <h3 class="education__degree">Higher Secondary School</h3>
+                    <p class="education__institution">Krishnammal Ramasubbaiyer CBSE School</p>
+                    <p class="education__period">2022 – 2023</p>
+                    <p class="education__grade">
+                        <span class="education__grade-label">Grade:</span> 
+                        <span class="education__grade-value">85%</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section class="resume section" id="resume">
+        <div class="container">
+            <h2 class="section__title">Resume</h2>
+            <div class="resume__content">
+                <div class="resume__card glass-card">
+                    <div class="resume__icon-wrapper">
+                        <i class="fas fa-file-alt resume__icon"></i>
+                    </div>
+                    <h3 class="resume__title">Download My Resume</h3>
+                    <p class="resume__description">Get a detailed overview of my skills, experience, and projects.</p>
+                    <a href="Resume.pdf" download class="btn btn--primary">
+                        <i class="fas fa-download"></i> Download Resume (PDF)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section" id="contact">
+        <div class="container">
+            <h2 class="section__title">Contact</h2>
+            <div class="contact__content">
+                <div class="contact__icons">
+                    <a href="mailto:23cseb38.kishore.ts@gmail.com" class="contact__icon" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://github.com/Kishorets05" target="_blank" rel="noopener noreferrer" class="contact__icon" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/kishore-t-s-699285308/" target="_blank" rel="noopener noreferrer" class="contact__icon" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Say Hi Button -->
+    <a href="mailto:23cseb38.kishore.ts@gmail.com?subject=Hello%20from%20your%20portfolio" class="say-hi-bubble" aria-label="Say Hi - Send Email">
+        <span class="say-hi-bubble__text">Say Hi</span>
+        <span class="say-hi-bubble__subtitle">Let's connect</span>
+    </a>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <p class="footer__copyright">© 2026 Kishore T S</p>
+                <p class="footer__tagline">Built with a focus on AI, Machine Learning, and real-world problem solving</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <!-- Inline Particle Network - Guaranteed to Work -->
+    <script>
+        (function() {
+            console.log('=== PARTICLE NETWORK INITIALIZING ===');
+            const canvas = document.getElementById('neural-network-bg');
+            if (!canvas) {
+                console.error('Canvas element not found!');
+                return;
+            }
+            console.log('Canvas found:', canvas);
+            
+            const ctx = canvas.getContext('2d');
+            if (!ctx) {
+                console.error('Cannot get 2D context!');
+                return;
+            }
+            console.log('2D context obtained');
+            
+            let width = canvas.width = window.innerWidth;
+            let height = canvas.height = window.innerHeight;
+            
+            canvas.style.position = 'fixed';
+            canvas.style.top = '0';
+            canvas.style.left = '0';
+            canvas.style.width = '100vw';
+            canvas.style.height = '100vh';
+            canvas.style.zIndex = '-1';
+            canvas.style.pointerEvents = 'none';
+            canvas.style.backgroundColor = 'transparent';
+            canvas.style.display = 'block';
+            canvas.style.visibility = 'visible';
+            canvas.style.opacity = '1';
+            
+            const particles = [];
+            const particleCount = 100;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const colorType = Math.random();
+                let color;
+                if (colorType < 0.4) {
+                    color = 'rgba(139, 92, 246, 0.6)'; // Electric Violet - reduced opacity by ~20%
+                } else if (colorType < 0.7) {
+                    color = 'rgba(168, 85, 247, 0.6)'; // Neon Purple - reduced opacity by ~20%
+                } else {
+                    color = 'rgba(34, 211, 238, 0.5)'; // Cyan-Blue accent - reduced opacity by ~23%
+                }
+                
+                particles.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    vx: (Math.random() - 0.5) * 0.42, // Slowed by 40% (0.7 * 0.6)
+                    vy: (Math.random() - 0.5) * 0.42, // Slowed by 40%
+                    radius: 3.5 + Math.random() * 2.5,
+                    color: color,
+                    pulsePhase: Math.random() * Math.PI * 2,
+                    pulseSpeed: 0.012 + Math.random() * 0.012 // Slowed by 40% (0.02 * 0.6)
+                });
+            }
+            
+            console.log('Created', particles.length, 'particles');
+            
+            let mouseX = 0, mouseY = 0;
+            document.addEventListener('mousemove', function(e) {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+            
+            function animate() {
+                // Clear with fade for smooth trails (reduced opacity by 15%)
+                ctx.fillStyle = 'rgba(5, 8, 20, 0.13)'; // Reduced from 0.15 to 0.13
+                ctx.fillRect(0, 0, width, height);
+                
+                // Update and draw particles
+                particles.forEach(function(p) {
+                    // Update pulse phase
+                    p.pulsePhase += p.pulseSpeed;
+                    
+                    // Update position with smooth parallax (slowed by 35%)
+                    p.x += p.vx * 0.39; // Reduced from 0.6 to 0.39 (35% slower)
+                    p.y += p.vy * 0.39;
+                    
+                    // Wrap around edges smoothly
+                    if (p.x < 0) p.x = width;
+                    if (p.x > width) p.x = 0;
+                    if (p.y < 0) p.y = height;
+                    if (p.y > height) p.y = 0;
+                    
+                    // Mouse parallax attraction (subtle, slowed)
+                    const dx = mouseX - p.x;
+                    const dy = mouseY - p.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 250 && dist > 0) {
+                        p.vx += (dx / dist) * 0.005; // Reduced by 37.5%
+                        p.vy += (dy / dist) * 0.005;
+                    }
+                    
+                    // Limit velocity for smooth movement (reduced)
+                    const vel = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+                    if (vel > 0.75) { // Reduced from 1.2 to 0.75 (37.5% slower)
+                        p.vx = (p.vx / vel) * 0.75;
+                        p.vy = (p.vy / vel) * 0.75;
+                    }
+                    
+                    // Calculate pulsing radius and opacity (reduced intensity)
+                    const pulse = 0.9 + Math.sin(p.pulsePhase) * 0.1; // Reduced pulse range
+                    const currentRadius = p.radius * pulse;
+                    const opacity = 0.5 + Math.sin(p.pulsePhase) * 0.15; // Reduced opacity range (was 0.6-0.85, now 0.5-0.65)
+                    
+                    // Extract color components
+                    const colorMatch = p.color.match(/rgba?\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)/);
+                    if (colorMatch) {
+                        const r = colorMatch[1];
+                        const g = colorMatch[2];
+                        const b = colorMatch[3];
+                        const newColor = `rgba(${r}, ${g}, ${b}, ${opacity})`;
+                        
+                        // Draw particle with reduced glow intensity
+                        ctx.shadowBlur = 12 + Math.sin(p.pulsePhase) * 6; // Reduced glow by ~40%
+                        ctx.shadowColor = newColor;
+                        ctx.fillStyle = newColor;
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, currentRadius, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                    ctx.shadowBlur = 0;
+                });
+                
+                // Draw connections
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (dist < 180) {
+                            // Fade in/out effect based on distance (reduced brightness)
+                            const fadeOpacity = (1 - dist / 180) * 0.35; // Reduced from 0.5 to 0.35 (30% reduction)
+                            const timeFade = (Math.sin(Date.now() * 0.0007 + dist * 0.01) + 1) * 0.5; // Slowed time fade by 30%
+                            const opacity = fadeOpacity * (0.5 + timeFade * 0.3); // Reduced base opacity
+                            
+                            const gradient = ctx.createLinearGradient(
+                                particles[i].x, particles[i].y,
+                                particles[j].x, particles[j].y
+                            );
+                            
+                            // Determine connection color based on particle colors
+                            const iColor = particles[i].color.includes('139, 92, 246') ? 'violet' : 
+                                          particles[i].color.includes('168, 85, 247') ? 'purple' : 'cyan';
+                            const jColor = particles[j].color.includes('139, 92, 246') ? 'violet' : 
+                                          particles[j].color.includes('168, 85, 247') ? 'purple' : 'cyan';
+                            
+                            // Create gradient based on particle colors (brighter)
+                            if (iColor === 'violet' || jColor === 'violet') {
+                                gradient.addColorStop(0, `rgba(139, 92, 246, ${opacity})`);
+                                gradient.addColorStop(1, `rgba(168, 85, 247, ${opacity * 0.9})`); // Increased from 0.8
+                            } else if (iColor === 'purple' || jColor === 'purple') {
+                                gradient.addColorStop(0, `rgba(168, 85, 247, ${opacity})`);
+                                gradient.addColorStop(1, `rgba(139, 92, 246, ${opacity * 0.9})`); // Increased from 0.8
+                            } else {
+                                // Cyan connections (accent) - brighter
+                                gradient.addColorStop(0, `rgba(34, 211, 238, ${opacity * 0.8})`); // Increased from 0.6
+                                gradient.addColorStop(1, `rgba(139, 92, 246, ${opacity * 0.6})`); // Increased from 0.4
+                            }
+                            
+                            ctx.strokeStyle = gradient;
+                            ctx.lineWidth = 1.2; // Slightly reduced from 1.5
+                            ctx.shadowBlur = 4; // Reduced from 6 to 4 (33% reduction)
+                            ctx.shadowColor = `rgba(168, 85, 247, ${opacity * 0.5})`; // Reduced from 0.7 to 0.5
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                            ctx.shadowBlur = 0;
+                        }
+                    }
+                }
+                
+                requestAnimationFrame(animate);
+            }
+            
+            window.addEventListener('resize', function() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+                // Reposition particles that are out of bounds
+                particles.forEach(p => {
+                    p.x = Math.min(p.x, width);
+                    p.y = Math.min(p.y, height);
+                });
+            });
+            
+            console.log('Starting animation...');
+            animate();
+            console.log('=== PARTICLE NETWORK RUNNING ===');
+        })();
+    </script>
+
+    <!-- Sticky Navigation with Active Section Detection -->
+    <script>
+        (function() {
+            const navLinks = document.querySelectorAll('.nav__link');
+            const sections = document.querySelectorAll('.section[id]');
+            
+            // Add padding to body to account for fixed navbar
+            document.body.style.paddingTop = '80px';
+            
+            function updateActiveNav() {
+                let current = '';
+                const scrollPosition = window.pageYOffset + 100; // Offset for better detection
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        current = sectionId;
+                    }
+                });
+                
+                // Update active state
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    const href = link.getAttribute('href');
+                    if (href === `#${current}` || (current === 'home' && href === '#home')) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            // Throttle scroll events for performance
+            let ticking = false;
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    window.requestAnimationFrame(function() {
+                        updateActiveNav();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+            
+            // Initial check
+            updateActiveNav();
+            
+            // Update on hash change (when clicking nav links)
+            window.addEventListener('hashchange', updateActiveNav);
+        })();
+    </script>
+
+</body>
+</html>
+
